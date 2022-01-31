@@ -24,7 +24,7 @@ class App extends react.Component {
   componentDidMount() {
     //gets the val if the current user is not null or null
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      createuserProfileDocument(user);
+      createuserProfileDocument(user); //create user in database -> stores current user in firestore
 
       console.log("The user is: ", user);
     });
