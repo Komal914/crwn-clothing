@@ -24,6 +24,7 @@ class App extends react.Component {
   componentDidMount() {
     //gets the val if the current user is not null or null
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      //user is not null
       if (userAuth) {
         const userRef = await createuserProfileDocument(userAuth);
 
@@ -37,6 +38,8 @@ class App extends react.Component {
         });
         console.log(this.state);
       }
+      //user is null
+      this.setState({ currentUser: userAuth }); //updates the state to null when userauth is null
     });
   }
 
