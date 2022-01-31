@@ -23,10 +23,20 @@ class App extends react.Component {
   //we need to unmount to avoid mem leaks so we use Unsubscribefromauth to unmount
   componentDidMount() {
     //gets the val if the current user is not null or null
-    this.unSubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      createuserProfileDocument(user); //create user in database -> stores current user in firestore
+    this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createuserProfileDocument(userAuth);
 
-      console.log("The user is: ", user);
+        userRef.onSnapshot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          });
+        });
+        console.log(this.state);
+      }
     });
   }
 
