@@ -17,10 +17,34 @@ export const createuserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
     return;
   }
-
   //user exists
 
-  console.log(firestore.doc("users/1232nfisfgn"));
+  //creates a user Documement Refrence to database -> to gets the users
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  //get request to database, we use await to make sure this is done before moving on
+  //gets the user ID from database
+  const snapShot = await userRef.get();
+  //if snapShot does not exist (exists = false in console, meaning there is not dta in my database)
+  if (!snapShot.exists) {
+    //create a piece of data through userRef in database
+    //create a user by using userAuth object which we used to authenticate with google sign in
+    const { displayName, email } = userAuth;
+    const createdAt = new Date(); //when we made that document
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log("error creating user", error.message);
+    }
+  }
+
+  return userRef;
 };
 
 firebase.initializeApp(config);
