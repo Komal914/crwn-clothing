@@ -21,13 +21,13 @@ const Header = ({ currentUser }) => (
       {/* conditionally render a div if true, or a link if the user is null */}
 
       {currentUser ? (
-        //render if  TRUE -> user found: new div which will sign out the user
+        //render if currentuser is TRUE -> user found: new div which will render to sign out the user
         <div className="option" onClick={() => auth.signOut()}>
           {" "}
           SIGN OUT
         </div>
       ) : (
-        //render if FALSE -> no user found: renders new link which will sign in the user
+        //render if cyrrentuser is FALSE -> no user found: renders new link which will sign in the user
         <Link className="option" to="/signin">
           {" "}
           SIGN IN
