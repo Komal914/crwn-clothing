@@ -5,7 +5,7 @@ import "./App.css";
 import ShopPage from "./pages/shoppage/shoppage.component";
 import Header from "./components/header/header.componenet";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createuserProfileDocument } from "./firebase/firebase.utils";
 import react from "react";
 
 class App extends react.Component {
@@ -23,8 +23,8 @@ class App extends react.Component {
   //we need to unmount to avoid mem leaks so we use Unsubscribefromauth to unmount
   componentDidMount() {
     //gets the val if the current user is not null or null
-    this.unSubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
+    this.unSubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      createuserProfileDocument(user); //create user in database -> stores current user in firestore
 
       console.log("The user is: ", user);
     });
