@@ -37,6 +37,7 @@ class App extends react.Component {
               ...snapShot.data(),
             },
           });
+          console.log(this.state);
         });
       }
       //user is null -> not signed in
