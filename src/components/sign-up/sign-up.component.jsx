@@ -51,6 +51,12 @@ class SignUp extends RemotePlayback.component {
       console.log("Error creating sign up: ", error);
     }
   };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
