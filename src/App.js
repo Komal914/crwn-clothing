@@ -26,10 +26,12 @@ class App extends react.Component {
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       //user is not null -> signed in
       if (userAuth) {
+        //callung the function in firebase to get user information: email, displayname etc...
         const userRef = await createuserProfileDocument(userAuth);
-
+        //gets the snapshopt: to get other properties like the ID
         userRef.onSnapshot((snapShot) => {
           this.setState({
+            //the .data is what is getting the propeties, snapshot.id is needed to get id which is not inside the Data
             currentUser: {
               id: snapShot.id,
               ...snapShot.data(),
