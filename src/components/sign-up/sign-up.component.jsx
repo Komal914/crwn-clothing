@@ -1,14 +1,13 @@
 import react from "react";
+
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import "./sign-up.styles.scss";
-import {
-  auth,
-  createuserProfileDocument,
-  createUserProfileDocument,
-} from "../../firebase/firebase.utils";
 
-class SignUp extends RemotePlayback.component {
+import { auth, createuserProfileDocument } from "../../firebase/firebase.utils";
+
+import "./sign-up.styles.scss";
+
+class SignUp extends react.Component {
   constructor() {
     super();
     this.state = {
@@ -96,7 +95,7 @@ class SignUp extends RemotePlayback.component {
             label="Confirm Password"
             required
           />
-          <CustomButton type="submit"> SIGN UP </CustomButton>
+          <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
       </div>
     );
