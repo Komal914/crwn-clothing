@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 
 ReactDOM.render(
+  //provider make the redux store available to any nested compoenent that need access
   <Provider store={store}>
     <BrowserRouter>
       <App />
