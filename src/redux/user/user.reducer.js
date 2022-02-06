@@ -1,3 +1,7 @@
+//this is the user reducer -> will deal with all user actions
+//reducer is a function that returns the enxt state tree,
+//given the state tree and an action to handle
+
 //redux does not have an initial state so we need a default
 const INITIAL_STATE = {
   currentuser: null,
