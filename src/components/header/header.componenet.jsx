@@ -1,6 +1,7 @@
 import react from "react";
 import "./header.styles.scss";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"; //higher order component -> lets us connect redux to components
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "./../../firebase/firebase.utils";
 
