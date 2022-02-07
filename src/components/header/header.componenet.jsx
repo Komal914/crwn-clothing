@@ -38,4 +38,9 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
-export default Header;
+//gets the state from root reducer
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
