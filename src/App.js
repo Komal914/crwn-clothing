@@ -55,7 +55,7 @@ class App extends react.Component {
     return (
       <div>
         {/* pass in the state of the current userA: false or the user to header component */}
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
