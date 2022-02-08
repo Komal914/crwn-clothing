@@ -8,6 +8,7 @@ import Header from "./components/header/header.componenet";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
 import { auth, createuserProfileDocument } from "./firebase/firebase.utils";
 import react from "react";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends react.Component {
   constructor() {
@@ -55,7 +56,6 @@ class App extends react.Component {
   render() {
     return (
       <div>
-        {/* pass in the state of the current userA: false or the user to header component */}
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -67,4 +67,7 @@ class App extends react.Component {
   }
 }
 
-export default App;
+//dispatches the actions which we want to use
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(null)(App);
