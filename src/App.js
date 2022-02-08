@@ -68,6 +68,10 @@ class App extends react.Component {
 }
 
 //dispatches the actions which we want to use
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  //gets the user object which will dispatch an action object to every reducer
+  //this will return a user action object which will then be used as the payload
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
 
-export default connect(null)(App);
+export default connect(null, mapDispatchToProps)(App);
