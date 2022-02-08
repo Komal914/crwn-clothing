@@ -17,6 +17,7 @@ class App extends react.Component {
 
   //we need to unmount to avoid mem leaks so we use Unsubscribefromauth to unmount
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     //gets the val if the current user is not null or null
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       //user is not null -> signed in
@@ -25,17 +26,14 @@ class App extends react.Component {
         const userRef = await createuserProfileDocument(userAuth);
         //gets the snapshopt: to get other properties like the ID
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            //the .data is what is getting the propeties, snapshot.id is needed to get id which is not inside the Data
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
-            },
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
           });
         });
       }
       //user is null -> not signed in
-      this.setState({ currentUser: userAuth }); //updates the state to null when userauth is null
+      setCurrentUser(userAuth); //updates the state to null when userauth is null
     });
   }
 
