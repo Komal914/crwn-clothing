@@ -33,10 +33,11 @@ class App extends react.Component {
         });
       }
       //user is null -> not signed in
-      setCurrentUser(userAuth); //updates the state to null when userauth is null
+      else {
+        setCurrentUser(userAuth); //updates the state to null when userauth is null
+      }
     });
   }
-
   //if the current user is null, then we unmount to close the connection and avoid leaks
   componentWillUnmount() {
     this.unSubscribeFromAuth(); //closes the subscription
