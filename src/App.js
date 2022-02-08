@@ -11,13 +11,6 @@ import react from "react";
 import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends react.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null,
-    };
-  }
-
   // Google authentication with Firebase below
 
   unSubscribeFromAuth = null;
