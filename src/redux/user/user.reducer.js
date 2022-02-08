@@ -4,7 +4,7 @@
 
 //redux does not have an initial state so we need a default
 const INITIAL_STATE = {
-  currentuser: null,
+  currentUser: null,
 };
 
 //if state is not set, initial state is used, null is a valid val here
@@ -13,7 +13,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case "SET_CURRENT_USER":
       return {
         ...state,
-        currentuser: action.payload,
+        currentUser: action.payload,
       };
 
     default:
