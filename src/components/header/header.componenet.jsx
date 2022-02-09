@@ -5,6 +5,7 @@ import { connect } from "react-redux"; //higher order component -> lets us conne
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "./../../firebase/firebase.utils";
 import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 //destructure the current user property
 const Header = ({ currentUser }) => (
@@ -37,6 +38,7 @@ const Header = ({ currentUser }) => (
       )}
       <CartIcon />
     </div>
+    <CartDropdown />
   </div>
 );
 
