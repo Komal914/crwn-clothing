@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "./pages/homepage/homepage.component";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import ShopPage from "./pages/shoppage/shoppage.component";
