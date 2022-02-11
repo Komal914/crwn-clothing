@@ -6,6 +6,7 @@ import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 
 import "./cart-icon.styles.scss";
 
+//imports the function inside out cart actions as a prop
 const CartIcon = ({ toggleCartHidden }) => (
   <div className="cart-icon" onClick={toggleCartHidden}>
     <ShoppingIcon className="shopping-icon" />
@@ -13,6 +14,7 @@ const CartIcon = ({ toggleCartHidden }) => (
   </div>
 );
 
+//gets the value of hidden inside the redux store
 const mapDispatchToProps = (dispatch) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
 });
