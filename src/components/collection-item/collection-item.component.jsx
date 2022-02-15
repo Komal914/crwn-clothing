@@ -2,8 +2,10 @@ import react from "react";
 import CollectionPreview from "../collection-preview/collection-preview.component";
 import "./collection-item.styles.scss";
 import CustomButton from "../custom-button/custom-button.component";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cart.actions"; //function inside redux which will recieve an item
 
-const CollectionItem = ({ id, name, price, imageUrl }) => (
+const CollectionItem = ({ id, name, price, imageUrl, addItem }) => (
   <div className="collection-item">
     <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
     <div className="collection-footer">
@@ -14,4 +16,9 @@ const CollectionItem = ({ id, name, price, imageUrl }) => (
   </div>
 );
 
-export default CollectionItem;
+const mapDispatchToProps = (dispatch) => ({
+  //dispatches the item into our redux store from addItem which we will use in collection item component
+  addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
