@@ -21,6 +21,7 @@ const CollectionItem = ({ item, addItem }) => {
   );
 };
 
+//gives the item to redux
 const mapDispatchToProps = (dispatch) => ({
   //dispatches the item into our redux store from addItem which we will use in collection item component
   addItem: (item) => dispatch(addItem(item)),
