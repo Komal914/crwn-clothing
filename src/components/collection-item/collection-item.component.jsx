@@ -3,7 +3,7 @@ import CollectionPreview from "../collection-preview/collection-preview.componen
 import "./collection-item.styles.scss";
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
-import { addItem } from "../../redux/cart/cart.actions"; //function inside redux which will recieve an item
+import { addItem } from "../../redux/cart/cart.actions"; //function inside redux which will help us add an item
 
 const CollectionItem = ({ item, addItem }) => {
   const { id, name, price, imageUrl } = item;
@@ -23,7 +23,7 @@ const CollectionItem = ({ item, addItem }) => {
 
 //gives the item to redux
 const mapDispatchToProps = (dispatch) => ({
-  //dispatches the item into our redux store from addItem which we will use in collection item component
+  //sends our item to redux to add the item into the cart and increase quanitity
   addItem: (item) => dispatch(addItem(item)),
 });
 
