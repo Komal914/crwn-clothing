@@ -4,6 +4,7 @@ functions that we may need in multiple
 files in one location
 */
 
+//updates quanitity and add items into the cart
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   //checks if this item is already in the cart
   const existingCartItem = cartItems.find(
@@ -11,7 +12,8 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   );
   //if this item is already in the cart
   if (existingCartItem) {
-    //return a new array with matching item and increase the quantity of items by 1
+    //we want to return a new object so that react can rerender
+    //return a new array with the same items but the quantity of item chosen by 1
     return cartItems.map(
       (cartItem) =>
         cartItem.id === cartItemToAdd.id
@@ -20,6 +22,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     );
   }
 
-  //if cartItem is not inside our array, return what is inside already and add an object -> a new item to add with the quanitity of 1
+  //if cartItem is not inside our array,
+  // return what is inside already + the new item -> a new object to add with the quanitity of 1
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
