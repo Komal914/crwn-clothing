@@ -1,3 +1,5 @@
+//This component drops downn when the user clicks the cart icon
+//will contain all the items the user wants to buy
 import React from "react";
 import "./cart-dropdown.styles.scss";
 import CustomButton from "../custom-button/custom-button.component";

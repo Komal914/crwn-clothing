@@ -1,3 +1,5 @@
+//This component dispays the collection items
+
 import react from "react";
 import "./collection-preview.styles.scss";
 import CollectionItem from "../collection-item/collection-item.component";

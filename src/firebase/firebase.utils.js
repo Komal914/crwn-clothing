@@ -1,3 +1,5 @@
+//This file contains functions we need for firebase
+
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
@@ -12,6 +14,7 @@ const config = {
   measurementId: "G-RH6HCB6861",
 };
 
+//creates user object for us
 export const createuserProfileDocument = async (userAuth, additionalData) => {
   //if User == null
   if (!userAuth) {

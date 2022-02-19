@@ -1,3 +1,4 @@
+//this is all the data we need for the shop page
 const SHOP_DATA = [
   {
     id: 1,

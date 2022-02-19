@@ -1,3 +1,5 @@
+//This component is one item from the shop collection
+
 import react from "react";
 import CollectionPreview from "../collection-preview/collection-preview.component";
 import "./collection-item.styles.scss";
