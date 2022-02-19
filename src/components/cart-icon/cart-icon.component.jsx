@@ -1,3 +1,5 @@
+//this component is the cart icon inside the header component
+
 import React from "react";
 import { connect } from "react-redux";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";

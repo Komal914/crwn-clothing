@@ -1,3 +1,5 @@
+//This is the directory for the homepage
+
 import react from "react";
 import MenuItem from "../menu-item/menu-item.component";
 import "./directory.styles.scss";
