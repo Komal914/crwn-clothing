@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 
 //this is the cart reducser-> it will toggle the value of hidden upon actions from the user
 const cartReducer = (state = INITIAL_STATE, action) => {
+  //switch the updates to dif action
   switch (action.type) {
     case CartActionTypes.TOGGLE_CART_HIDDEN:
       return {
